@@ -1,0 +1,151 @@
+{% load static %}
+<style>
+.section {
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+.product.product-single .product-rating {
+    float: left;
+    margin-top: 0px;
+}
+.section-title {
+    position: relative;
+    margin-bottom: 1px;
+    margin-top: -20px;
+    border-bottom: 1px solid #DADADA;
+}
+</style>
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<!-- Product Slick -->
+				<div class="col-md-9 col-sm-6 col-xs-6">
+					<div class="row">
+						<div id="product-slick-1" class="product-slick">
+							{% for rs in slider %}
+							<!-- Product Single -->
+							<div class="product product-single" style="width:200px!important;">
+								<div class="product-thumb" style="width:200px!important;">
+									<ul class="product-countdown">
+										{% for recent_chapter in rs.chapter_set.all.reverse|slice:":4" %}
+										<li><span><a href="/chapter/{{ recent_chapter.books.id }}/{{ recent_chapter.chapter_number }}" style="color:#FFFFFF;"><i class=""></i><b>{{recent_chapter.chapter_number}}</b></a></span></li>
+										{% endfor %}
+									</ul>
+									<a href="/product/{{rs.id}}/{{rs.slug}}" class="main-btn quick-view" style="font-size:70%;"><i class="fa fa-search-plus"></i> Quick view</a>
+									<img src="{{ rs.image.url }}" alt="" style="height:250px!important;">
+								</div>
+								<div class="product-body">
+									<div class="product-rating" style="margin:center">
+									<i class="fa fa-star{% if rs.avaregereview < 1%}-o empty{% endif%}"></i>
+									<i class="fa fa-star{% if rs.avaregereview < 2%}-o empty{% endif%}"></i>
+									<i class="fa fa-star{% if rs.avaregereview < 3%}-o empty{% endif%}"></i>
+									<i class="fa fa-star{% if rs.avaregereview < 4%}-o empty{% endif%}"></i>
+									<i class="fa fa-star{% if rs.avaregereview < 5%}-o empty{% endif%}"></i>
+									{{ rs.avaregereview}}/{{ rs.countreview}}
+                                   </div>
+								</div>
+								<div class="product-body"><h2 class="product-name"><a href="/product/{{rs.id}}/{{rs.slug}}">{{ rs.title|slice:":20" }}..</a></h2></div>
+							</div>
+							<!-- /Product Single -->
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<!-- /Product Slick -->
+
+				<!-- banner -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="banner banner-2">
+						<div class="product-body">
+							<a href=""><button class="button1"><img src="{% static './img/paypal-donate-button.jpg' %}" style="height:50px; width: 200px;"></button></a>
+						</div>
+						<div class="product-body"><br>
+							<a href=""><button class="button1"><img src="{% static './img/1200px-Visa.svg.png' %}" style="height:50px; width: 200px;"></button></a>
+						</div>
+						<div class="product-body"><br>
+							<a href=""><button class="button1"><img src="{% static './img/images.png' %}" style="height:50px; width: 200px;"></button></a>
+						</div>
+					</div>
+				</div>
+				<!-- /banner -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+
+
+
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+				<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="col-md-12">
+					<div class="section-title">
+						<h3 class="title">View All MANGA</h3>
+					</div>
+				</div>
+				<!-- section title -->
+				{% for rs in products_picked %}
+				<!-- Product Single -->
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="product product-single" style="width:200px!important;">
+						<!-- Product Single -->
+						<div class="product product-single">
+								<div class="product-thumb">
+									<ul class="product-countdown">
+										{% for recent_chapter in rs.chapter_set.all.reverse|slice:":4" %}
+										<li><span><a href="/chapter/{{ recent_chapter.books.id }}/{{ recent_chapter.chapter_number }}" style="color:#FFFFFF;"><i class=""></i><b>{{recent_chapter.chapter_number}}</b></a></span></li>
+										{% endfor %}
+									</ul>
+									<a href="/product/{{rs.id}}/{{rs.slug}}" class="main-btn quick-view" style="font-size:70%;"><i class="fa fa-search-plus"></i> Quick view</a>
+									<img src="{{ rs.image.url }}" alt="" style="height:250px!important;">
+								</div>
+								<div class="product-body">
+						        <div class="product-rating">
+                                <i class="fa fa-star{% if rs.avaregereview < 1%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 2%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 3%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 4%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 5%}-o empty{% endif%}"></i>
+                                {{ rs.avaregereview}}/{{ rs.countreview}}
+                                </div>
+								</div>
+							    <div class="product-body"><h2 class="product-name"><a href="/product/{{rs.id}}/{{rs.slug}}">{{ rs.title|slice:":20" }}..</a></h2></div>
+							</div>
+						<!-- /Product Single -->
+					</div>
+				</div>
+				<!-- /Product Single -->
+				{% endfor %}
+			</div>
+			<!-- /row -->
+
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+
+
+
+
+
+
+
+<!-- #### Hello Test #####  -->
+
+
+
+
+

@@ -1,0 +1,199 @@
+﻿<!doctype html>
+<head>
+
+ {% load static %}
+    <link rel="stylesheet" href="{% static 'css/c-style07e8.css' %}">
+</head>
+<body>
+
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white;
+  color: black;
+  border: 2px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button4:hover {background-color: #e7e7e7;}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+.container {
+    max-width: 1200px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.responsive {
+  width: 100%;
+  height: auto;
+}
+</style> <!-- @@@@ Next/ Previous Buttons CSS @@@ -->
+
+<div class="body-site" style="background-color:#FFFFFF!important;">
+<div class="container">
+
+<div class="panel-breadcrumb" style="background-color:#D37E47!important; border-radius: 25px;">
+    <a class="a-h" href="/" title="Read immortalsunscans Online"><b>Read Immortalsunscans Online</b></a>
+<span>»</span>
+<a class="a-h" href="#" title="immortalsunscans"></a>
+<span>»</span>
+<a class="a-h" href="#" title="Chapter 1"></a>
+</div>
+<div class="panel-navigation">
+
+<div class="panel-chapter-info-top">
+
+<div class="server-image">
+
+<span>
+
+
+</span>
+</div>
+</div>
+</div>
+<div style="width: 100%;overflow: hidden;text-align: center;">
+<!--@@@@@@@<div style="display: block; width: 728px; height: 90px; overflow: hidden; text-align: center; margin: 10px auto 5px;">
+<iframe src="#" scrolling="no" frameborder="0" style="width: 728px; height: 90px;"></iframe>
+</div>adds @@@@ -->
+</div>
+<div class="container">
+<div> <!-- @@@ buttons Area -->
+     <a class="a-h" href="/"> Read Page Number ::---</a>
+    <div class="row">
+        <a class="navi-change-chapter-btn-next a-h button button1"><b>>></b></a>
+        {% for chapter in all_chapter %}
+        <a class="navi-change-chapter-btn-next a-h button button1" href="/chapter/{{ chapter.books.id }}/{{ chapter.chapter_number }}" >{{ chapter.chapter_number }}</a>
+        {% endfor %}
+        <a class="navi-change-chapter-btn-next a-h button button1"><b><<</b></a>
+   </div>
+</div><!-- @@@ buttons Area -->
+</div>
+
+    <div class="container col-md-8">
+      <div class="container-chapter-reader" style="text-align:center!important;">
+<div class="container-chapter-reader" style="width:100%!important;">
+
+<br>
+    {% for image in images %}
+    <img class="responsive" src="{{image.image.url}}" alt="immortalsunscans" title="immortalsunscans">
+    {% endfor %}
+</div>
+
+</div>
+    </div>
+
+
+<div style="clear: both;"></div>
+
+<br><br>
+<div class="container">
+<div> <!-- @@@ buttons Area -->
+     <a class="a-h" href="/"> Read Page Number ::---</a>
+    <div class="row">
+        <a class="navi-change-chapter-btn-next a-h button button1"><b>>></b></a>
+        {% for chapter in all_chapter %}
+        <a class="navi-change-chapter-btn-next a-h button button1" href="/chapter/{{ chapter.books.id }}/{{ chapter.chapter_number }}" >{{ chapter.chapter_number }}</a>
+        {% endfor %}
+        <a class="navi-change-chapter-btn-next a-h button button1"><b><<</b></a>
+   </div>
+</div><!-- @@@ buttons Area -->
+</div>
+
+
+<div class="panel-breadcrumb">
+<span>
+<a class="a-h" href="/" title="Read immortalsunscans Online">
+<a class="a-h" href="/"> Read immortalsunscans Online</a>
+</a>
+</span>
+<span>»</span>
+ <span>
+<a class="a-h" href="#" title="immortalsunscans">
+<span>immortalsunscans</span>
+</a>
+</span>
+<span>»</span>
+<span>
+<a class="a-h" href="#" title="Chapter 1">
+<span></span>
+</a>
+</span>
+</div>
+
+</div>
+
+<div class="container container-footer">
+<div class="container-footer-content" style="background-color:#D37E47!important; border-radius: 50px;">
+<div class="pn-hot-link">
+
+</div>
+<div class="pn-contacts">
+<h4><a href="/" style="color:#FFFFFF;"><b>www.immortalsunscans.com</b></a> </h4>
+<p>Current Time is Jul 01,2020 - 01:13:58 AM</p>
+    <p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="flag_user_clear_cache" style="display: none;"></div> </div>
+<div id="fb-root"></div>
+
+<script type="text/javascript" src="{% static 'themes/hm/js/changes-mode-chapter.js' %}"></script>
+</body>
+
+</html>

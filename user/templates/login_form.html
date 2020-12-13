@@ -1,0 +1,53 @@
+{% extends 'homebase.html' %}
+{% block title %} User Login -{{setting.title}} {% endblock %}
+{% block description %} {{setting.description}} {% endblock %}
+{% block keywords %} {{setting.keywords}} {% endblock %}
+
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+
+{% block body %}
+<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li class="active">User Login</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+<br/>
+<br/>
+	<!-- section -->
+<div class="container">
+	 <div class="row justify-content-center col-sm-6">
+
+		 {% if messages %}
+			 {% for message in messages %}
+			 <div class="alert alert-{{message.tags}}" role="alert">
+				 {{ message }}
+			 </div>
+			 {% endfor %}
+		 {% endif %}
+
+     <form action="" method="post">
+		 {% csrf_token %}
+		 <div class="form-group">
+			 <input class="input" style="border-radius: 50px!important;" type="text" name="username" placeholder="Fuser Name">
+		 </div>
+		 <div class="form-group">
+			 <input class="input" style="border-radius: 50px!important;" type="password" name="password" placeholder="Password">
+		 </div>
+		 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+		 <span><label for="vehicle1"> Save Your Password</label><br></span>
+		 <input class="primary-btn" style="background:#D37E47;" type="submit" value="Login">
+		 <br>
+		 <br>
+		 <div style="color:#B40000">
+			 <a href=""><b><u>ForgetPassword</u></b></a> <br>
+			 <a href="/signup"><b><u>SignUp</u></b></a></div>
+	 </form>
+	 </div>
+	<!-- /section -->
+</div>
+{% endblock %}

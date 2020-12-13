@@ -1,0 +1,109 @@
+{% load static %}
+<!-- HEADER -->
+<style>
+.header-search>form .search-input {
+    padding-left: 21px;
+    padding-right: 250px;
+}
+</style>
+	<header>
+
+		<!-- header -->
+		<div id="header">
+			<div class="container">
+				<div class="pull-left">
+					<!-- Logo -->
+					<div class="header-logo">
+						<a class="logo" href="/">
+							<img src="{% static './img/logo2.jpg' %}" alt="">
+						</a>
+					</div>
+					<!-- /Logo -->
+
+
+					<script>
+					  $(function() {
+						$("#query").autocomplete({
+						  source: "/search_auto/",
+						  select: function (event, ui) { //item selected
+							AutoCompleteSelectHandler(event, ui)
+						  },
+						  minLength: 2,
+						});
+					  });
+
+					  function AutoCompleteSelectHandler(event, ui)
+					  {
+						var selectedObj = ui.item;
+					  }
+
+					</script>
+
+
+					<!-- Search -->
+					<div class="header-search">
+						<form action="/search/" method="post">
+							{% csrf_token %}
+							<input id="query" name="query" class="input search-input" type="text" placeholder="Enter your keyword">
+							<button class="search-btn" style="background:#FF530D;"><i class="fa fa-search"></i></button>
+						</form>
+					</div>
+					<!-- /Search -->
+				</div>
+				<div class="pull-right">
+					<ul class="header-btns">
+						<!-- Account -->
+						<li class="header-account dropdown default-dropdown">
+							{% if user.id is not None  %}
+								<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+									<div class="header-btns-icon">
+										 <img src="{{ request.session.userimage }}" style="height: 40px; border-radius: 30%">
+									</div>
+									<strong class="text-uppercase">{{user.first_name}}<i class="fa fa-caret-down"></i></strong>
+								</div>
+							{% else %}
+							<a href="/login" class="text-uppercase"><b>Login</b></a> / <a href="/signup" class="text-uppercase"><b>Signup</b></a>
+							{% endif %}
+							<ul class="custom-menu">
+								<li><a href="/user/profile"><i class="fa fa-user-o"></i> My Account</a></li>
+								<li><a href="/favourites"><i class="fa fa-heart-o"></i> My Bookmark</a></li>
+								<li><a href="/user/comments"><i class="fa fa-check"></i> My Comments</a></li>
+								<li><a href="/logout"><i class="fa fa-unlock-alt"></i> Logout</a></li>
+
+							</ul>
+						</li>
+						<!-- /Account -->
+
+						<!-- Cart -->
+						  <li class="header-cart dropdown default-dropdown">
+							    {% if user.id is not None  %}
+							    <a href="/favourites">
+								<div class="header-btns-icon">
+									<a href="/favourites" class="fa fa-bookmark"></a>
+								</div>
+								<strong class="text-uppercase"><a href="/favourites">Bookmark:</a></strong>
+							    </a>
+							    {% else %}
+							    <a href="/login">
+								<div class="header-btns-icon">
+									<a href="/login" class="fa fa-bookmark"></a>
+								</div>
+								<strong class="text-uppercase"><a href="/login">Bookmark:</a></strong>
+							    </a>
+							    {% endif %}
+						  </li>
+						<!-- /Cart -->
+
+						<!-- Mobile nav toggle-->
+						<li class="nav-toggle">
+							<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
+						</li>
+						<!-- / Mobile nav toggle -->
+					</ul>
+				</div>
+			</div>
+			<!-- header -->
+		</div>
+		<!-- container -->
+	</header>
+	<!-- /HEADER -->
