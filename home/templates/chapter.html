@@ -111,24 +111,22 @@
 <iframe src="#" scrolling="no" frameborder="0" style="width: 728px; height: 90px;"></iframe>
 </div>adds @@@@ -->
 </div>
-<div class="container">
+<div class="container" style="text-align: center;">
 <div> <!-- @@@ buttons Area -->
-     <a class="a-h" href="/"> Read Page Number ::---</a>
+     <a class="a-h" href="/"> Read Page Number :: {{chapters.chapter_number }}</a>
     <div class="row">
-        <a class="navi-change-chapter-btn-next a-h button button1"><b>>></b></a>
         {% for chapter in all_chapter %}
         <a class="navi-change-chapter-btn-next a-h button button1" href="/chapter/{{ chapter.books.id }}/{{ chapter.chapter_number }}" >{{ chapter.chapter_number }}</a>
         {% endfor %}
-        <a class="navi-change-chapter-btn-next a-h button button1"><b><<</b></a>
    </div>
 </div><!-- @@@ buttons Area -->
 </div>
 
-    <div class="container col-md-8">
-      <div class="container-chapter-reader" style="text-align:center!important;">
-<div class="container-chapter-reader" style="width:100%!important;">
+    <div class="container" style="text-align: center;">
+        <div class="container-chapter-reader" style="text-align:center!important;">
+       <div class="container-chapter-reader" style="width:100%!important;">
 
-<br>
+    <br>
     {% for image in images %}
     <img class="responsive" src="{{image.image.url}}" alt="immortalsunscans" title="immortalsunscans">
     {% endfor %}
@@ -141,15 +139,13 @@
 <div style="clear: both;"></div>
 
 <br><br>
-<div class="container">
+<div class="container" style="text-align: center;">
 <div> <!-- @@@ buttons Area -->
-     <a class="a-h" href="/"> Read Page Number ::---</a>
+     <a class="a-h" href="/"> Read Page Number :: {{chapters.chapter_number }}</a>
     <div class="row">
-        <a class="navi-change-chapter-btn-next a-h button button1"><b>>></b></a>
         {% for chapter in all_chapter %}
         <a class="navi-change-chapter-btn-next a-h button button1" href="/chapter/{{ chapter.books.id }}/{{ chapter.chapter_number }}" >{{ chapter.chapter_number }}</a>
         {% endfor %}
-        <a class="navi-change-chapter-btn-next a-h button button1"><b><<</b></a>
    </div>
 </div><!-- @@@ buttons Area -->
 </div>

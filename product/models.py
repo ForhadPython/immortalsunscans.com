@@ -54,6 +54,7 @@ class Chapter(models.Model):
     books = models.ForeignKey(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=80)
     chapter_number = models.IntegerField(default=0)
+    views = models.IntegerField(default=0)
 
     def __str__(self):
         return "{} : {} : {}".format(self.books.title, self.chapter_number, self.name)

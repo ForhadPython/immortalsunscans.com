@@ -99,6 +99,8 @@ def Chapters(request, bid, cnum):
     chapters = Chapter.objects.get(books__id=int(bid), chapter_number=int(cnum))
     images = ChapterImage.objects.filter(chapter_obj__id=chapters.id)
     all_chapter = Chapter.objects.filter(books=chapters.books)
+    chapters.views= chapters.views + 1
+    chapters.save()
     context = {
         'chapters': chapters,
         'images': images,
@@ -111,7 +113,6 @@ def post_delete(request, id):
     return HttpResponse('Hello Delete')
 
 
-@login_required
 def favourite_post(request, id):
     post = get_object_or_404(Product, id=id)
     if post.favourite.filter(id=request.user.id).exists():

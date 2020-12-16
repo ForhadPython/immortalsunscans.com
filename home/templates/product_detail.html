@@ -32,6 +32,7 @@
     float: left;
     width: 100%;
 }
+
 </style>
 <!-- BREADCRUMB -->
 	<div id="breadcrumb">
@@ -53,10 +54,9 @@
 				<!--  Product Details -->
 				<div class="product product-details clearfix">
 					<div class="col-md-4">
-						<div id="product-main-view">
-							<div class="product-view">
-								<img src="{{product.image.url}}" alt="" style="height:400px!important; width:400px!important;">
-							</div>
+						<div id="product-main-view" style="height: 350px !important; width: 250px!important; margin-left: auto!important; margin-right: auto!important;">	
+						<img src="{{product.image.url}}" alt="">
+							
 						</div>
 					</div>
 					<div class="col-md-4">
@@ -106,11 +106,10 @@
 								</form>
 							    </div>
 							</div>
-					</div>
-
+		                   </div>
 					<div class="col-md-4"><br>
 						<div class="product-body">
-							<a href=""><button class="button1"><img src="{% static './img/paypal-donate-button.jpg' %}" style="height:70px; width: 200px;"></button></a>
+							<a href=""><button class="button1"><img src="{% static './img/paypal-logo-main.jpg' %}" style="height:70px; width: 200px;"></button></a>
 						</div>
 						<div class="product-body"><br>
 							<a href=""><button class="button1"><img src="{% static './img/1200px-Visa.svg.png' %}" style="height:70px; width: 200px;"></button></a>
@@ -236,12 +235,23 @@
 				<div class="col-md-9">
 					<div class="panel-story-chapter-list">
 						<ul class="row-content-chapter">
-						{% for chapter in product.chapter_set.all %}
-							<li class="a-h">
-								<a rel="nofollow" class="chapter-name text-nowrap" href="/chapter/{{ chapter.books.id }}/{{ chapter.chapter_number }}" title="immortalsunscans" title="immortalsunscans" style="font-size:18px; line-height: 80%;"><b>{{chapter.name}}</b></a>
-							<span class="chapter-time text-nowrap" title="Jun 28,2020 07:06">{{chapter.create_at}}</span>
-							</li>
-						{% endfor %}
+							<table class="table table-hover row-content-chapter">
+						  <thead>
+							<tr>
+							  <th scope="col">Chapter :</th>
+							  <th scope="col">View :</th>
+							  <th scope="col">Date :</th>
+							</tr>
+						  </thead>
+						  {% for chapter in product.chapter_set.all %}
+							<tr>
+								<td><a href="/chapter/{{ chapter.books.id }}/{{ chapter.chapter_number }}"><b>{{chapter.name}}</b></a></td>
+							    <td><b>{{chapter.views}}</b></td>
+								<td><b>{{product.create_at}}</b></td>
+							</tr>
+						  {% endfor %}
+						  </tbody>
+						</table>
 					    </ul>
 				    </div>
 				  </div>

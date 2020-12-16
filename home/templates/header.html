@@ -5,6 +5,10 @@
     padding-left: 21px;
     padding-right: 250px;
 }
+#header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 </style>
 	<header>
 
@@ -62,36 +66,25 @@
 									<strong class="text-uppercase">{{user.first_name}}<i class="fa fa-caret-down"></i></strong>
 								</div>
 							{% else %}
-							<a href="/login" class="text-uppercase"><b>Login</b></a> / <a href="/signup" class="text-uppercase"><b>Signup</b></a>
+							<a href="/login" class="text-uppercase"><b><img src="{% static './img/login.png' %}" alt="" style="height:20px; margin-right: 7px;;">Login</b></a> <img src="{% static './img/signup.png' %}" alt="" style="height:20px; margin-right: 7px;;"><a href="/signup" class="text-uppercase"><b>Signup</b></a>
 							{% endif %}
 							<ul class="custom-menu">
-								<li><a href="/user/profile"><i class="fa fa-user-o"></i> My Account</a></li>
+								{% if user.name is admin  %}
 								<li><a href="/favourites"><i class="fa fa-heart-o"></i> My Bookmark</a></li>
 								<li><a href="/user/comments"><i class="fa fa-check"></i> My Comments</a></li>
 								<li><a href="/logout"><i class="fa fa-unlock-alt"></i> Logout</a></li>
-
+								{% else %}
+								<li><a href="/user/"><i class="fa fa-user-o"></i> My Account</a></li>
+								<li><a href="/favourites"><i class="fa fa-heart-o"></i> My Bookmark</a></li>
+								<li><a href="/user/comments"><i class="fa fa-check"></i> My Comments</a></li>
+								<li><a href="/logout"><i class="fa fa-unlock-alt"></i> Logout</a></li>
+								{% endif %}
 							</ul>
 						</li>
 						<!-- /Account -->
 
 						<!-- Cart -->
-						  <li class="header-cart dropdown default-dropdown">
-							    {% if user.id is not None  %}
-							    <a href="/favourites">
-								<div class="header-btns-icon">
-									<a href="/favourites" class="fa fa-bookmark"></a>
-								</div>
-								<strong class="text-uppercase"><a href="/favourites">Bookmark:</a></strong>
-							    </a>
-							    {% else %}
-							    <a href="/login">
-								<div class="header-btns-icon">
-									<a href="/login" class="fa fa-bookmark"></a>
-								</div>
-								<strong class="text-uppercase"><a href="/login">Bookmark:</a></strong>
-							    </a>
-							    {% endif %}
-						  </li>
+						 
 						<!-- /Cart -->
 
 						<!-- Mobile nav toggle-->
