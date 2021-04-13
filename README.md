@@ -6,12 +6,12 @@
 3 | pip install requirements.txt 
 4| python manage.py makemigrations 
 5| python manage.py migrate 
-( Then you need to create a superuser ) 1
+( Then you need to create a superuser ) 
 6| python manage.py createsuperuser 
 7| Username : xyz 
 8| Password : xtz 
 9| confirm Password :: xyz 
-10| python manage.py makemigrations 1
+10| python manage.py makemigrations 
 11| python manage.py migrate
 
 16 | python manage.py runserver
